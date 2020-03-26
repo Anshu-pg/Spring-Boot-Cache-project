@@ -33,6 +33,7 @@ public class MyController {
 	
 	
 	////// Without caching method......
+	//Every time we call this method and every time it hits the database.
 	
 	@GetMapping("/getAll")
 	public List<Employee> getAll()
@@ -45,6 +46,8 @@ public class MyController {
 	
 	
 	//// With caching method......
+	///In this case only once the request is made to the database and after that java application interact with cache data.
+	
 	@GetMapping("/getAll/empl")
 	
 	@Cacheable(value = "cachEmployee")
@@ -59,6 +62,8 @@ public class MyController {
 	
 	
 	/////CachEvict.....................  
+	///This will remove the cache.
+	
 	
 	@GetMapping("/remove")
 	
